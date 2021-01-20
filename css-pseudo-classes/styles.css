@@ -1,0 +1,19 @@
+button {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  padding: 10px 14px;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+}
+
+thead:first-child {
+  background-color: black;
+  color: white;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: lightgray;
+}
