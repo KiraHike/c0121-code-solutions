@@ -1,0 +1,145 @@
+body {
+  font-family: 'Avenir', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.container {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero {
+  max-width: 100%;
+  padding: 75px;
+}
+
+.row-white {
+  display: flex;
+  color: #525351;
+  padding: 30px 50px;
+}
+
+.row-gray-light-top {
+  display: flex;
+  background-color: #fafafa;
+  text-align: center;
+  color: #525351;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 75px;
+}
+
+.row-gray-light-bottom {
+  display: flex;
+  background-color: #fafafa;
+  text-align: center;
+  color: #525351;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 75px;
+}
+
+h3 {
+  width: 100%;
+  font-family: 'Tiempos Headline', sans-serif;
+  font-style: normal;
+  font-size: 1.8rem;
+  font-weight: 570;
+  margin: 0;
+}
+
+.list-clinics li {
+  list-style-type: none;
+  font-size: 1.1rem;
+  line-height: 2;
+}
+
+.row-gray-dark {
+  display: flex;
+  background-color: #525351;
+  color: white;
+  padding: 75px 50px;
+}
+
+.column-full {
+  width: 100%;
+}
+
+.column-half {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+}
+
+.button-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-get-started {
+  border: 2px solid #294464;
+  border-radius: 6px;
+  background-color: #294464;
+  font-size: 1.2rem;
+  color: white;
+  height: 50px;
+  width: 180px;
+}
+
+.footer-logo {
+  width: 100%;
+  margin-top: 0;
+}
+
+.footer-logo > img {
+  width: 135px;
+  height: 26px;
+}
+
+address {
+  font-style: normal;
+}
+
+.footer-links {
+  width: 50%;
+}
+
+.footer-company-links {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.footer-product-links {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.footer-links li {
+  list-style-type: none;
+  letter-spacing: 0.05rem;
+  line-height: 2rem;
+}
+
+h5 {
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  font-size: 1rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.footer-privacy > li {
+  display: inline;
+  font-size: 1.1rem;
+}
+
+ul.footer-privacy {
+  padding-left: 0;
+}
+
+li.contact-us {
+  padding-left: 20px;
+}
