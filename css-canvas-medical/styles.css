@@ -10,112 +10,120 @@ body {
   margin-right: auto;
 }
 
+.row-nav {
+  display: flex;
+  border-bottom: 1px solid  #e6e5e5;
+}
+
+.column-full-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 75px;
+  padding-right: 75px;
+}
+
+.nav-bar li {
+  display: inline;
+  font-size: 1rem;
+  padding-left: 20px;
+  color: #a0a0a0;
+}
+
+.logo-container-nav {
+  width: 200px;
+}
+
+.logo-container-nav > img {
+  width: 135px;
+  height: 26px;
+}
+
+.button-contact {
+  border: 2px solid #294464;
+  border-radius: 6px;
+  background-color: #294464;
+  font-size: 1rem;
+  color: white;
+  height: 40px;
+  width: 120px;
+}
+
+.column-full {
+  width: 100%;
+}
+
 .hero-container {
-  padding: 75px;
+  width: 100%;
+  padding: 50px;
 }
 
 .hero-background {
-  max-width: 100%;
   position: relative;
+  width: 100%;
 }
 
-.hero {
+.hero-background > img {
   max-width: 100%;
 }
 
 .overlay {
-  background: rgba(116, 112, 112, 0.425);
   position: absolute;
+  background: rgba(83, 81, 81, 0.329);
   top: 0;
   right: 0;
   bottom: 4px;
   left: 0;
 }
 
-.overlay-text-container {
+.hero-text-container {
+  padding-left: 75px;
   width: 100%;
   height: 100%;
-  padding-left: 75px;
-  display: flex;
-  justify-content: left;
-  align-items: center;
 }
 
-h1 {
+.hero-text {
+  width: 525px;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+h1.hero-heading {
   font-family: 'Tiempos Headline', sans-serif;
   color: white;
   font-size: 2.5rem;
   font-weight: 570;
+  margin: 0;
 }
 
-.overlay-text p {
+p.hero-para {
   color: white;
   font-size: 1.1rem;
   line-height: 2rem;
-  max-width: 60%;
+  padding-top: 20px;
   padding-bottom: 20px;
 }
 
-.button-started-left {
+.button-started {
   border: 2px solid #294464;
   border-radius: 6px;
   background-color: #294464;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: white;
   height: 50px;
   width: 180px;
 }
 
-.row-white {
+.row-ltgray-large {
   display: flex;
-  color: #525351;
-  padding: 30px 50px;
-}
-
-.row-gray-light-top {
-  display: flex;
-  background-color: #fafafa;
-  text-align: center;
-  color: #525351;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-top: 75px;
-}
-
-.row-gray-light-bottom {
-  display: flex;
-  background-color: #fafafa;
-  text-align: center;
-  color: #525351;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-bottom: 75px;
-}
-
-h3 {
-  width: 100%;
-  font-family: 'Tiempos Headline', sans-serif;
-  font-style: normal;
-  font-size: 1.8rem;
-  font-weight: 570;
-  margin: 0;
-}
-
-.list-clinics li {
-  list-style-type: none;
-  font-size: 1.1rem;
-  line-height: 2;
-}
-
-.row-gray-dark {
-  display: flex;
-  background-color: #525351;
-  color: white;
+  flex-wrap: wrap;
   padding: 75px 50px;
-}
-
-.column-full {
-  width: 100%;
+  background-color: #fafafa;
+  text-align: center;
+  color: #525351;
 }
 
 .column-half {
@@ -124,57 +132,43 @@ h3 {
   width: 50%;
 }
 
-.button-container {
+h2 {
+  width: 100%;
+  font-family: 'Tiempos Headline', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 570;
+  margin: 0;
+}
+
+.list-gray {
+  width: 100%;
+  list-style-type: none;
+  font-size: 1.1rem;
+  line-height: 2.5;
+  padding: 20px 0;
+}
+
+.row-white {
+  display: flex;
+  color: #525351;
+  padding: 30px 50px;
+}
+
+.button-container-right {
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
 
-.button-started-right {
-  border: 2px solid #294464;
-  border-radius: 6px;
-  background-color: #294464;
-  font-size: 1.2rem;
+.row-dkgray {
+  display: flex;
+  background-color: #525351;
   color: white;
-  height: 50px;
-  width: 180px;
+  padding: 100px 50px;
 }
 
-.footer-logo {
-  width: 100%;
-  margin-top: 0;
-}
-
-.footer-logo > img {
-  width: 135px;
-  height: 26px;
-}
-
-address {
-  font-style: normal;
-}
-
-.footer-links {
-  width: 50%;
-}
-
-.footer-company-links {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.footer-product-links {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.footer-links li {
-  list-style-type: none;
-  letter-spacing: 0.05rem;
-  line-height: 2rem;
-}
-
-h5 {
+h3 {
   text-transform: uppercase;
   letter-spacing: 0.05rem;
   font-size: 1rem;
@@ -182,15 +176,49 @@ h5 {
   margin-bottom: 0.5rem;
 }
 
-.footer-privacy > li {
-  display: inline;
-  font-size: 1.1rem;
+.logo-container-footer {
+  width: 100%;
+  margin-top: 0;
 }
 
-ul.footer-privacy {
+.logo-container-footer > img {
+  width: 135px;
+  height: 26px;
+}
+
+address {
+  font-style: normal;
+  line-height: 1.5;
+  padding-top: 20px;
+}
+
+.footer-links-container {
+  width: 50%;
+  list-style-type: none;
+  letter-spacing: 0.05rem;
+  line-height: 2rem;
+}
+
+.footer-links {
+  list-style-type: none;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.row-ltgray-small {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px 30px;
+  background-color: #fafafa;
+  color: #525351;
+}
+
+.footer-privacy {
   padding-left: 0;
 }
 
-li.contact-us {
+.footer-privacy > li {
+  display: inline;
+  font-size: 1.1rem;
   padding-left: 20px;
 }
