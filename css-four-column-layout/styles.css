@@ -39,16 +39,12 @@ p {
   flex-direction: column;
 }
 
-.img-container-icon {
+.image-container-icon {
   width: 25%;
   margin-right: auto;
   margin-left: auto;
 }
 
-.img-container-screen > img {
-  max-width: 100%;
-}
-
-.img-container-icon > img {
+.image {
   max-width: 100%;
 }
