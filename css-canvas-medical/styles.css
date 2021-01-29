@@ -35,7 +35,7 @@ body {
   width: 200px;
 }
 
-.logo-container-nav > img {
+.logo-container-nav img {
   width: 135px;
   height: 26px;
 }
@@ -64,7 +64,7 @@ body {
   width: 100%;
 }
 
-.hero-background > img {
+.hero-background img {
   max-width: 100%;
 }
 
@@ -181,7 +181,7 @@ h3 {
   margin-top: 0;
 }
 
-.logo-container-footer > img {
+.logo-container-footer img {
   width: 135px;
   height: 26px;
 }
@@ -217,7 +217,7 @@ address {
   padding-left: 0;
 }
 
-.footer-privacy > li {
+.footer-privacy li {
   display: inline;
   font-size: 1.1rem;
   padding-left: 20px;
