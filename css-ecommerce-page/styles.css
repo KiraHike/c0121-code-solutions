@@ -22,12 +22,16 @@ h1 {
 .column-fifth {
   width: 18%;
   padding: 5px;
-  display: flex;
-  flex-direction: column;
 }
 
-.img-container > img {
-  max-width: 100%;
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.item {
+  line-height: 2rem;
 }
 
 .item-brand {
@@ -49,7 +53,6 @@ h1 {
 
 .price-retail {
   font-weight: 500;
-  text-decoration: line-through;
   color: #d3d3d3;
   padding-left: 2px;
 }
