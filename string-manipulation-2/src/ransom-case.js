@@ -6,10 +6,10 @@ function ransomCase(string) {
   var upCase = '';
   for (var i = 0; i < string.length; i++) {
     if (i % 2 === 0) {
-      lowCase = string.substring(i, i + 1);
+      lowCase = string[i];
       ransomCaseResult += lowCase.toLowerCase();
     } else {
-      upCase = string.substring(i, i + 1);
+      upCase = string[i];
       ransomCaseResult += upCase.toUpperCase();
     }
   }
