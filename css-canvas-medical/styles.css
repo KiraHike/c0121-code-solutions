@@ -132,12 +132,51 @@ p.hero-para {
   width: 50%;
 }
 
+.row-white-border {
+  color: #525351;
+  padding: 30px 50px;
+  border-bottom: 1px solid  #e6e5e5;
+}
+
+.column-center {
+  width: 58%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.1rem;
+  padding-top: 30px;
+  padding-bottom: 150px;
+}
+
 h2 {
   width: 100%;
   font-family: 'Tiempos Headline', sans-serif;
   font-size: 1.8rem;
   font-weight: 570;
   margin: 0;
+}
+
+h2.impl {
+  width: 100%;
+  font-family: 'Tiempos Headline', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 570;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.big-number {
+  font-family: 'Tiempos Headline', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 570;
+  padding-right: 5px;
+}
+
+h3 {
+  font-family: 'Avenir', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.3rem;
+  padding-top: 20px;
 }
 
 .list-gray {
@@ -168,7 +207,7 @@ h2 {
   padding: 100px 50px;
 }
 
-h3 {
+h4 {
   text-transform: uppercase;
   letter-spacing: 0.05rem;
   font-size: 1rem;
