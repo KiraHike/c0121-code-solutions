@@ -1,0 +1,30 @@
+.background {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.background.on {
+  background-color: #fef9f1;
+}
+
+.background.off {
+  background-color: #111;
+}
+
+.light-bulb {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+}
+
+.light-bulb.on {
+  background-color: #faea84;
+  box-shadow: 1px 1px 5px 5px #faea84af;
+}
+
+.light-bulb.off {
+  background-color: #252525;
+  box-shadow: 1px 1px 5px 5px #252525c2;
+}
