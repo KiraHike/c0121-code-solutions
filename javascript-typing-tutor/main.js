@@ -6,23 +6,21 @@ var $buttonNo = document.querySelector('.button-no');
 var i = 0;
 var correct = 0;
 var incorrect = 0;
-var totalType = 0;
-var accuracy = 0;
 
 function type(event) {
   if ($char[i].textContent !== event.key) {
-    $char[i].className = 'span rd ul';
+    $char[i].className = 'incorrect';
     incorrect++;
   } else if (i + 1 < $char.length) {
-    $char[i].className = 'span gr';
-    $char[i + 1].className = 'span bl ul';
+    $char[i].className = 'correct';
+    $char[i + 1].className = 'bl ul';
     i++;
     correct++;
   } else {
-    $char[i].className = 'span gr';
+    $char[i].className = 'correct';
     correct++;
-    totalType = correct + incorrect;
-    accuracy = Math.floor(correct / totalType * 100);
+    var totalType = correct + incorrect;
+    var accuracy = Math.floor(correct / totalType * 100);
     $modal.className = 'modal visable';
     $stats.textContent = 'Accuracy: ' + accuracy + '%';
   }

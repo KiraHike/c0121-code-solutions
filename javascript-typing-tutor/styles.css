@@ -20,11 +20,11 @@ span.bl.ul {
   border-bottom: 5px solid black;
 }
 
-span.gr {
+span.correct {
   color: green;
 }
 
-span.rd.ul {
+span.incorrect {
   color: red;
   border-bottom: 5px solid red;
 }
