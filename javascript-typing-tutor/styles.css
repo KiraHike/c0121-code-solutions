@@ -28,3 +28,61 @@ span.rd.ul {
   color: red;
   border-bottom: 5px solid red;
 }
+
+.modal.hidden {
+  display: none;
+}
+
+.modal.visable {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(58, 57, 57, 0.9);
+}
+
+.modal-container {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 450px;
+  height: 200px;
+  background-color: white;
+  border-radius: 6px;
+  color: black;
+  text-align: center;
+}
+
+button {
+  font-size: 1.75rem;
+  color: white;
+  border-radius: 6px;
+  box-shadow: 1px 2px 2px 2px gray;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.button-yes {
+  height: 50px;
+  width: 100px;
+  background-color: green;
+  border: 1px solid green;
+}
+
+.button-no {
+  height: 50px;
+  width: 100px;
+  background-color: red;
+  border: 1px solid red;
+}
