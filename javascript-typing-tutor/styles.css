@@ -1,0 +1,85 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+h1 {
+  font-size: 3rem;
+  text-align: center;
+}
+
+span.bl {
+  color: black;
+}
+
+span.bl.ul {
+  color: black;
+  border-bottom: 5px solid black;
+}
+
+span.correct {
+  color: green;
+}
+
+span.incorrect {
+  color: red;
+  border-bottom: 5px solid red;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal.visable {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(58, 57, 57, 0.5);
+}
+
+.modal-container {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: center;
+  width: 450px;
+  height: 250px;
+  background-color: white;
+  border: 2px inset black;
+  border-radius: 6px;
+  color: black;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+h2 {
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  height: 50px;
+  width: 100px;
+  background-color: rgb(15, 26, 131);
+  border: 1px solid rgb(15, 26, 131);
+  font-size: 1.75rem;
+  color: white;
+  border-radius: 6px;
+  box-shadow: 1px 2px 2px 2px gray;
+}
+
+button:hover {
+  cursor: pointer;
+}
