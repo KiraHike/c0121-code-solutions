@@ -11,13 +11,13 @@ function changeTab(event) {
         $tabList[i].className = 'tab';
       }
     }
-  }
-  var dataViewValue = event.target.getAttribute('data-view');
-  for (var x = 0; x < $viewList.length; x++) {
-    if ($viewList[x].getAttribute('data-view') === dataViewValue) {
-      $viewList[x].className = 'view';
-    } else {
-      $viewList[x].className = 'view hidden';
+    var dataViewValue = event.target.getAttribute('data-view');
+    for (var x = 0; x < $viewList.length; x++) {
+      if ($viewList[x].getAttribute('data-view') === dataViewValue) {
+        $viewList[x].className = 'view';
+      } else {
+        $viewList[x].className = 'view hidden';
+      }
     }
   }
 }
