@@ -1,12 +1,11 @@
 /* exported omit */
 
 function omit(source, keys) {
-  for (var i = 0; i < keys.length; i++) {
-    for (var key in source) {
-      if (key === keys[i]) {
-        delete source[key];
-      }
+  var omitResult = {};
+  for (var key in source) {
+    if (!keys.includes(key)) {
+      omitResult[key] = source[key];
     }
   }
-  return source;
+  return omitResult;
 }
