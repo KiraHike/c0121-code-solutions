@@ -68,12 +68,17 @@ var deck = [
 
 function shuffle(array) {
   var shuffledDeck = [];
+  var shuffledIndexes = [];
   var newIndex;
-  for (var i = 0; shuffledDeck.length < 52; i++) {
+  for (var i = 0; shuffledIndexes.length < 52; i++) {
     newIndex = Math.floor(Math.random() * Math.floor(53));
-    if (shuffledDeck.indexOf(newIndex) === -1) {
-      shuffledDeck.push(newIndex);
+    if (shuffledIndexes.indexOf(newIndex) === -1) {
+      shuffledIndexes.push(newIndex);
     }
   }
+  for (i = 0; i < array.length; i++) {
+    shuffledDeck.splice(shuffledIndexes[i], 1, array[i]);
+  }
+  return shuffledIndexes;
   return shuffledDeck;
 }
