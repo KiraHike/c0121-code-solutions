@@ -82,37 +82,29 @@ function shuffle(array) {
   return shuffledDeck;
 }
 
-var allScores = [];
-
 function deal(players, cards, deck) {
+  var allScores = [];
+  var winners = [];
   for (var i = 0; i < players.length; i++) {
-    var score = 0;
+    var handScore = 0;
     var dealHand = deck.splice(0, cards);
     players[i].hand = dealHand;
     for (var x = 0; x < cards; x++) {
       if (dealHand[x].rank === 'Ace') {
-        score += 11;
+        handScore += 11;
       } else if (dealHand[x].rank === 'King' || dealHand[x].rank === 'Queen' || dealHand[x].rank === 'Jack') {
-        score += 10;
+        handScore += 10;
       } else {
-        score += Number(dealHand[x].rank);
+        handScore += Number(dealHand[x].rank);
       }
-      console.log(score);
-      // allScores.push(score);
     }
+    players[i]['score'] = handScore;
+    allScores.push(handScore);
   }
-  // console.log(allScores);
-  // return allScores;
-}
-
-function winner(players, array) {
-  var winnerIndex = array.indexOf(Math.max(array));
-  console.log(array);
-  // console.log(players[winnerIndex].name + ' is the winner!')
+  var winningScore = Math.max(...allScores);
 }
 
 function play(players, cards) {
   shuffle(deck);
   deal(players, cards, shuffledDeck);
-  winner(players, allScores);
 }
