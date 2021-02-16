@@ -65,20 +65,54 @@ var deck = [
   { rank: '2', suit: 'Hearts' },
 ];
 
+var shuffledDeck = [];
 
 function shuffle(array) {
-  var shuffledDeck = [];
-  var shuffledIndexes = [];
+  var indexList = [];
   var newIndex;
-  for (var i = 0; shuffledIndexes.length < 52; i++) {
+  for (var i = 0; indexList.length < 52; i++) {
     newIndex = Math.floor(Math.random() * Math.floor(53));
-    if (shuffledIndexes.indexOf(newIndex) === -1) {
-      shuffledIndexes.push(newIndex);
+    if (indexList.includes(newIndex) === false) {
+      indexList.push(newIndex);
     }
   }
   for (i = 0; i < array.length; i++) {
-    shuffledDeck.splice(shuffledIndexes[i], 1, array[i]);
+    shuffledDeck.splice(indexList[i], 0, array[i]);
   }
-  return shuffledIndexes;
   return shuffledDeck;
+}
+
+var allScores = [];
+
+function deal(players, cards, deck) {
+  for (var i = 0; i < players.length; i++) {
+    var score = 0;
+    var dealHand = deck.splice(0, cards);
+    players[i].hand = dealHand;
+    for (var x = 0; x < cards; x++) {
+      if (dealHand[x].rank === 'Ace') {
+        score += 11;
+      } else if (dealHand[x].rank === 'King' || dealHand[x].rank === 'Queen' || dealHand[x].rank === 'Jack') {
+        score += 10;
+      } else {
+        score += Number(dealHand[x].rank);
+      }
+      console.log(score);
+      // allScores.push(score);
+    }
+  }
+  // console.log(allScores);
+  // return allScores;
+}
+
+function winner(players, array) {
+  var winnerIndex = array.indexOf(Math.max(array));
+  console.log(array);
+  // console.log(players[winnerIndex].name + ' is the winner!')
+}
+
+function play(players, cards) {
+  shuffle(deck);
+  deal(players, cards, shuffledDeck);
+  winner(players, allScores);
 }
