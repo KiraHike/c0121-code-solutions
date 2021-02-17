@@ -33,7 +33,7 @@ Bank.prototype.getAccount = function (number) {
 
 Bank.prototype.getTotalAssets = function () {
   var total = 0;
-  if (!this.accounts.length >= 0) {
+  if (this.accounts.length < 0) {
     return 0;
   } else {
     for (var i = 0; i < this.accounts.length; i++) {
