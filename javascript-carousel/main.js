@@ -95,3 +95,5 @@ function slideRight() {
 $containerDots.addEventListener('click', navDot);
 $chevronLeft.addEventListener('click', slideLeft);
 $chevronRight.addEventListener('click', slideRight);
+
+setInterval(slideRight, 3000);
