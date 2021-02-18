@@ -84,25 +84,44 @@ function shuffle(array) {
 
 function deal(players, cards, deck) {
   var allScores = [];
+  var allPlayers = [];
   var winners = [];
   for (var i = 0; i < players.length; i++) {
-    var handScore = 0;
+    var score = 0;
     var dealHand = deck.splice(0, cards);
     players[i].hand = dealHand;
     for (var x = 0; x < cards; x++) {
       if (dealHand[x].rank === 'Ace') {
-        handScore += 11;
+        score += 11;
       } else if (dealHand[x].rank === 'King' || dealHand[x].rank === 'Queen' || dealHand[x].rank === 'Jack') {
-        handScore += 10;
+        score += 10;
       } else {
-        handScore += Number(dealHand[x].rank);
+        score += Number(dealHand[x].rank);
       }
     }
-    players[i]['score'] = handScore;
-    allScores.push(handScore);
+    players[i]['score'] = score;
+    allPlayers.push(players[i]);
+    allScores.push(score);
   }
-  var winningScore = Math.max(...allScores);
+
+  var highestScore = Math.max(...allScores);
+
+  for (i = 0; i < allPlayers.length; i++) {
+    console.log('allPlayers[i]:', allPlayers[i]);
+    console.log('allPlayers[i].score:', allPlayers[i].score);
+    if (allPlayers[i].score === highestScore) {
+      winners.push(allPlayers[i]);
+      console.log('winners array:', winners);
+    }
+  }
+
+  if (winners.length = 1) {
+    console.log(winners[0].name + ' is the winner!');
+  } else {
+    console.log('It\'s a tie!');
+  }
 }
+
 
 function play(players, cards) {
   shuffle(deck);
