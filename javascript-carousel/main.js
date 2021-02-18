@@ -1,42 +1,73 @@
 var imgs = [
   {
     name: 'Pikachu',
-    order: 'one',
     url: 'images/025.png'
   },
   {
     name: 'Bulbasur',
-    order: 'two',
     url: 'images/001.png'
   },
   {
     name: 'Charmander',
-    order: 'three',
     url: 'images/004.png'
   },
   {
     name: 'Squirtle',
-    order: 'four',
     url: 'images/007.png'
   },
   {
     name: 'Jigglypuff',
-    order: 'five',
     url: 'images/039.png'
   }
 ];
 
 var $img = document.querySelector('img');
+var $containerDots = document.querySelector('.container-dots');
+var $dotsList = document.querySelectorAll('.fa-circle');
+var $chevronLeft = document.querySelector('.fa-chevron-left');
+var counter = 0;
+var lastIndex = imgs.length - 1;
 
 function navDot() {
-  var $dotID = event.target.getAttribute('id');
-  for (var i = 0; i < imgs.length; i++) {
-    if ($dotID === imgs[i].order) {
-      $img.setAttribute('src', imgs[i].url);
-      $img.setAttribute('alt', imgs[i].name);
+  if (event.target.matches('i')) {
+    counter = Number(event.target.getAttribute('order'));
+    for (var i = 0; i < imgs.length; i++) {
+      if (counter === i) {
+        $img.setAttribute('order', counter);
+        $img.setAttribute('src', imgs[i].url);
+        $img.setAttribute('alt', imgs[i].name);
+        event.target.className = 'dot-full fas fa-circle';
+      }
+    }
+    for (var x = 0; x < $dotsList.length; x++) {
+      if (Number($dotsList[x].getAttribute('order')) !== counter) {
+        $dotsList[x].className = 'dot-open far fa-circle';
+      }
     }
   }
 }
 
-var $containerDots = document.querySelector('.container-dots');
+function slideLeft() {
+  counter = Number($img.getAttribute('order')); // 1
+  if (counter === 0) {
+    counter = lastIndex;
+    $img.setAttribute('order', counter);
+    $img.setAttribute('src', imgs[counter].url);
+    $img.setAttribute('alt', imgs[counter].name);
+    $dotsList[counter].className = 'dot-full fas fa-circle';
+  } else {
+    counter--;
+    $img.setAttribute('order', counter);
+    $img.setAttribute('src', imgs[counter].url);
+    $img.setAttribute('alt', imgs[counter].name);
+    $dotsList[counter].className = 'dot-full fas fa-circle';
+  }
+  for (var x = 0; x < $dotsList.length; x++) {
+    if (Number($dotsList[x].getAttribute('order')) !== counter) {
+      $dotsList[x].className = 'dot-open far fa-circle';
+    }
+  }
+}
+
 $containerDots.addEventListener('click', navDot);
+$chevronLeft.addEventListener('click', slideLeft);
