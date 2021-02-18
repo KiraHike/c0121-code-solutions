@@ -25,6 +25,7 @@ var $img = document.querySelector('img');
 var $containerDots = document.querySelector('.container-dots');
 var $dotsList = document.querySelectorAll('.fa-circle');
 var $chevronLeft = document.querySelector('.fa-chevron-left');
+var $chevronRight = document.querySelector('.fa-chevron-right');
 var counter = 0;
 var lastIndex = imgs.length - 1;
 
@@ -48,7 +49,7 @@ function navDot() {
 }
 
 function slideLeft() {
-  counter = Number($img.getAttribute('order')); // 1
+  counter = Number($img.getAttribute('order'));
   if (counter === 0) {
     counter = lastIndex;
     $img.setAttribute('order', counter);
@@ -69,5 +70,28 @@ function slideLeft() {
   }
 }
 
+function slideRight() {
+  counter = Number($img.getAttribute('order'));
+  if (counter === lastIndex) {
+    counter = 0;
+    $img.setAttribute('order', counter);
+    $img.setAttribute('src', imgs[counter].url);
+    $img.setAttribute('alt', imgs[counter].name);
+    $dotsList[counter].className = 'dot-full fas fa-circle';
+  } else {
+    counter++;
+    $img.setAttribute('order', counter);
+    $img.setAttribute('src', imgs[counter].url);
+    $img.setAttribute('alt', imgs[counter].name);
+    $dotsList[counter].className = 'dot-full fas fa-circle';
+  }
+  for (var x = 0; x < $dotsList.length; x++) {
+    if (Number($dotsList[x].getAttribute('order')) !== counter) {
+      $dotsList[x].className = 'dot-open far fa-circle';
+    }
+  }
+}
+
 $containerDots.addEventListener('click', navDot);
 $chevronLeft.addEventListener('click', slideLeft);
+$chevronRight.addEventListener('click', slideRight);
