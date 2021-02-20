@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  width: 900px;
+  height: 100vh;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.column-third {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.container-chevron {
+  padding: 2rem;
+}
+
+.container-img,
+.container-dots {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.dot-full,
+.dot-open {
+  padding: 0.25rem;
+}
