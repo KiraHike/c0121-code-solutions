@@ -62,10 +62,14 @@ var deck = [
   { rank: '5', suit: 'Hearts' },
   { rank: '4', suit: 'Hearts' },
   { rank: '3', suit: 'Hearts' },
-  { rank: '2', suit: 'Hearts' },
+  { rank: '2', suit: 'Hearts' }
 ];
 
 var shuffledDeck = [];
+var allScores = [];
+var allPlayers = [];
+var winners = [];
+var handCards = 0;
 
 function shuffle(array) {
   var indexList = [];
@@ -83,9 +87,9 @@ function shuffle(array) {
 }
 
 function deal(players, cards, deck) {
-  var allScores = [];
-  var allPlayers = [];
-  var winners = [];
+  allScores = [];
+  allPlayers = [];
+  winners = [];
   for (var i = 0; i < players.length; i++) {
     var score = 0;
     var dealHand = deck.splice(0, cards);
@@ -99,31 +103,35 @@ function deal(players, cards, deck) {
         score += Number(dealHand[x].rank);
       }
     }
-    players[i]['score'] = score;
+    players[i].score = score;
     allPlayers.push(players[i]);
     allScores.push(score);
   }
-
   var highestScore = Math.max(...allScores);
-
   for (i = 0; i < allPlayers.length; i++) {
-    console.log('allPlayers[i]:', allPlayers[i]);
-    console.log('allPlayers[i].score:', allPlayers[i].score);
     if (allPlayers[i].score === highestScore) {
       winners.push(allPlayers[i]);
-      console.log('winners array:', winners);
     }
   }
-
-  if (winners.length = 1) {
-    console.log(winners[0].name + ' is the winner!');
-  } else {
-    console.log('It\'s a tie!');
-  }
+  shuffledDeck = [];
+  handCards = cards;
 }
-
 
 function play(players, cards) {
   shuffle(deck);
   deal(players, cards, shuffledDeck);
+  if (winners.length === 1) {
+    console.log(winners[0].name + ' is the winner!');
+  } else {
+    while (winners.length > 1) {
+      console.log('It\'s a tie! Let\'s go again.');
+      shuffle(deck);
+      deal(winners, handCards, shuffledDeck);
+      if (winners.length === 1) {
+        console.log(winners[0].name + ' is the winner!');
+      }
+    }
+  }
 }
+
+play(players, 2);
