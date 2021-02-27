@@ -7,69 +7,28 @@ var players = [
   { name: 'Archer', hand: [] }
 ];
 
-var deck = [
-  { rank: 'Ace', suit: 'Spades' },
-  { rank: 'King', suit: 'Spades' },
-  { rank: 'Queen', suit: 'Spades' },
-  { rank: 'Jack', suit: 'Spades' },
-  { rank: '10', suit: 'Spades' },
-  { rank: '9', suit: 'Spades' },
-  { rank: '8', suit: 'Spades' },
-  { rank: '7', suit: 'Spades' },
-  { rank: '6', suit: 'Spades' },
-  { rank: '5', suit: 'Spades' },
-  { rank: '4', suit: 'Spades' },
-  { rank: '3', suit: 'Spades' },
-  { rank: '2', suit: 'Spades' },
-
-  { rank: 'Ace', suit: 'Diamonds' },
-  { rank: 'King', suit: 'Diamonds' },
-  { rank: 'Queen', suit: 'Diamonds' },
-  { rank: 'Jack', suit: 'Diamonds' },
-  { rank: '10', suit: 'Diamonds' },
-  { rank: '9', suit: 'Diamonds' },
-  { rank: '8', suit: 'Diamonds' },
-  { rank: '7', suit: 'Diamonds' },
-  { rank: '6', suit: 'Diamonds' },
-  { rank: '5', suit: 'Diamonds' },
-  { rank: '4', suit: 'Diamonds' },
-  { rank: '3', suit: 'Diamonds' },
-  { rank: '2', suit: 'Diamonds' },
-
-  { rank: 'Ace', suit: 'Clubs' },
-  { rank: 'King', suit: 'Clubs' },
-  { rank: 'Queen', suit: 'Clubs' },
-  { rank: 'Jack', suit: 'Clubs' },
-  { rank: '10', suit: 'Clubs' },
-  { rank: '9', suit: 'Clubs' },
-  { rank: '8', suit: 'Clubs' },
-  { rank: '7', suit: 'Clubs' },
-  { rank: '6', suit: 'Clubs' },
-  { rank: '5', suit: 'Clubs' },
-  { rank: '4', suit: 'Clubs' },
-  { rank: '3', suit: 'Clubs' },
-  { rank: '2', suit: 'Clubs' },
-
-  { rank: 'Ace', suit: 'Hearts' },
-  { rank: 'King', suit: 'Hearts' },
-  { rank: 'Queen', suit: 'Hearts' },
-  { rank: 'Jack', suit: 'Hearts' },
-  { rank: '10', suit: 'Hearts' },
-  { rank: '9', suit: 'Hearts' },
-  { rank: '8', suit: 'Hearts' },
-  { rank: '7', suit: 'Hearts' },
-  { rank: '6', suit: 'Hearts' },
-  { rank: '5', suit: 'Hearts' },
-  { rank: '4', suit: 'Hearts' },
-  { rank: '3', suit: 'Hearts' },
-  { rank: '2', suit: 'Hearts' }
-];
-
+var deck = [];
 var shuffledDeck = [];
 var allScores = [];
 var allPlayers = [];
 var winners = [];
 var handCards = 0;
+
+function makeDeck() {
+  deck = [];
+  var suit = ['Spades', 'Diamonds', 'Clubs', 'Hearts'];
+  var rank = ['Ace', 'King', 'Queen', 'Jack', '10', '9', '8', '7', '6', '5', '4', '3', '2'];
+  for (var i = 0; i < suit.length; i++) {
+    for (var x = 0; x < rank.length; x++) {
+      var card = { suit: suit[i], rank: rank[x] };
+      deck.push(card);
+
+    }
+  }
+  return deck;
+}
+
+makeDeck();
 
 function shuffle(array) {
   var indexList = [];
