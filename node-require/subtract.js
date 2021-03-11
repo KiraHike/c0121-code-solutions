@@ -1,1 +1,3 @@
-const difference = (num1, num2) => num1 - num2
+const difference = (num1, num2) => Number(num1) - Number(num2);
+
+module.exports = difference;
