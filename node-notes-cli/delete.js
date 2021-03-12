@@ -13,4 +13,4 @@ function deleteEntry(entryId) {
   }
 }
 
-deleteEntry(process.argv[2]);
+module.exports = deleteEntry;

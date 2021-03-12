@@ -13,4 +13,4 @@ function updateEntry(entryId, updatedEntry) {
   }
 }
 
-updateEntry(process.argv[2], process.argv[3]);
+module.exports = updateEntry;
