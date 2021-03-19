@@ -12,7 +12,7 @@ app.get('/api/notes', (req, res) => {
   const notesArray = [];
   for (const id in notes) {
     notesArray.push(notes[id]);
-  };
+  }
   res.status(200).json(notesArray);
 });
 
@@ -35,7 +35,29 @@ app.get('/api/notes/:id', (req, res) => {
   res.status(code).json(reply);
 });
 
+app.post('/api/notes', (req, res) => {
+  const replies = {
+    noContent: 'content is a required field'
+  };
+
+  let code;
+  let reply;
+
+  if (!req.body.content) {
+    code = 400;
+    reply = replies.noContent;
+  } else {
+    const note = req.body;
+    notes[nextId] = note;
+    notes[nextId].id = nextId;
+    nextId++;
+    code = 201;
+    reply = note;
+  }
+  res.status(code).json(reply);
+});
+
 app.listen(3000, () => {
-  //eslint-disable-next-line no-console
+  // eslint-disable-next-line no-console
   console.log('Express listening on port 3000');
 });
