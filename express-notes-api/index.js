@@ -28,9 +28,9 @@ app.get('/api/notes/:id', (req, res) => {
   if (req.params.id <= 0) {
     code = 400;
     reply = replies.invalidId;
-  } else if (!req.params.id) {
-    code = 404;
-    reply = replies.noId;
+  } else {
+    code = 200;
+    reply = notes[req.params.id];
   }
   res.status(code).json(reply);
 });
