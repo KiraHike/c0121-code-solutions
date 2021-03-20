@@ -3,6 +3,15 @@ const express = require('express');
 let nextId = 1;
 const notes = {};
 
+const replies = {
+  invalidId: 'id must be a positive integer',
+  noId: 'cannot find note with id ',
+  noContent: 'content is a required field'
+};
+
+let code;
+let reply;
+
 const app = express();
 const parseJSON = express.json();
 
@@ -17,14 +26,6 @@ app.get('/api/notes', (req, res) => {
 });
 
 app.get('/api/notes/:id', (req, res) => {
-  const replies = {
-    invalidId: 'id must be a positive integer',
-    noId: `cannot find note with id ${req.params.id}`
-  };
-
-  let code;
-  let reply;
-
   if (req.params.id <= 0) {
     code = 400;
     reply = replies.invalidId;
@@ -36,13 +37,6 @@ app.get('/api/notes/:id', (req, res) => {
 });
 
 app.post('/api/notes', (req, res) => {
-  const replies = {
-    noContent: 'content is a required field'
-  };
-
-  let code;
-  let reply;
-
   if (!req.body.content) {
     code = 400;
     reply = replies.noContent;
@@ -54,6 +48,13 @@ app.post('/api/notes', (req, res) => {
     code = 201;
     reply = note;
   }
+  res.status(code).json(reply);
+});
+
+app.delete('/api/notes/:id', (req, res) => {
+  delete notes[req.params.id];
+  code = 204;
+  reply = res.body;
   res.status(code).json(reply);
 });
 
