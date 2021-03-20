@@ -1,0 +1,14 @@
+{
+  "invalidId": {
+    "error": "id must be a positive integer"
+  },
+  "noId": {
+    "error": "cannot find note with id entered"
+  },
+  "noContent": {
+    "error": "content is a required field"
+  },
+  "generic": {
+    "error": "an unexpected error occured"
+  }
+}
