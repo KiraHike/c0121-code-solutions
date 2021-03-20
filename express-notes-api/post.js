@@ -1,12 +1,6 @@
 const fs = require('fs');
 const file = require('./data.json');
 const message = require('./messages.json');
-const express = require('express');
-
-const app = express();
-const parseJSON = express.json();
-
-app.use(parseJSON);
 
 function postNote(req, res) {
   if (!req.body.content) {
@@ -17,7 +11,7 @@ function postNote(req, res) {
     file.notes[file.nextId].id = file.nextId;
     file.nextId++;
     const data = JSON.stringify(file, null, 2);
-    fs.writeFile('./data.json', data, (err) => {
+    fs.writeFile('./data.json', data, err => {
       if (err) {
         res.status(500).json(message.generic);
       } else {
@@ -25,6 +19,6 @@ function postNote(req, res) {
       }
     });
   }
-};
+}
 
 module.exports = postNote;
