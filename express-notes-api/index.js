@@ -51,6 +51,20 @@ app.post('/api/notes', (req, res) => {
   res.status(code).json(reply);
 });
 
+app.put('/api/notes/:id', (req, res) => {
+  if (req.params.id <= 0) {
+    code = 400;
+    reply = replies.invalidId;
+  } else {
+    const note = req.body;
+    notes[req.params.id] = note;
+    notes[req.params.id].id = Number(req.params.id);
+    code = 200;
+    reply = note;
+  }
+  res.status(code).json(reply);
+});
+
 app.delete('/api/notes/:id', (req, res) => {
   delete notes[req.params.id];
   code = 204;
