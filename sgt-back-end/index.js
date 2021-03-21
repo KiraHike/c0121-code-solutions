@@ -1,4 +1,5 @@
 const express = require('express');
+const getAllGrades = require('./getAll');
 const getGrade = require('./get');
 
 const app = express();
@@ -6,6 +7,7 @@ const parseJSON = express.json();
 
 app.use(parseJSON);
 
+app.get('/api/grades', getAllGrades);
 app.get('/api/grades/:gradeId', getGrade);
 
 app.listen(3000, () => {
