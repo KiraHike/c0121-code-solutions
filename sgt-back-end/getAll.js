@@ -14,7 +14,7 @@ function getAllGrades(req, res, next) {
   db.query(sql)
     .then(result => {
       const allGrades = result.rows;
-      res.json(allGrades);
+      res.status(200).json(allGrades);
     })
     .catch(err => {
       console.error(err);

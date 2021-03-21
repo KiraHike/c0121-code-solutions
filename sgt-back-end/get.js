@@ -9,7 +9,7 @@ const db = new pg.Pool({
 function getGrade(req, res, next) {
   const gradeId = parseInt(req.params.gradeId, 10);
   if (!Number.isInteger(gradeId) || gradeId <= 0) {
-    res.status(400).json({ error: '"gradeId" must be a positive integer' });
+    res.status(400).json({ error: 'gradeId must be a positive integer' });
     return;
   }
   const sql = `
@@ -22,9 +22,9 @@ function getGrade(req, res, next) {
     .then(result => {
       const grade = result.rows[0];
       if (!grade) {
-        res.status(404).json({ error: `Cannot find grade with "gradeId" ${gradeId}` });
+        res.status(404).json({ error: `Cannot find grade with gradeId ${gradeId}` });
       } else {
-        res.json(grade);
+        res.status(200).json(grade);
       }
     })
     .catch(err => {
