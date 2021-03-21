@@ -3,6 +3,7 @@ const getAllGrades = require('./getAll');
 const getGrade = require('./get');
 const postGrade = require('./post');
 const putGrade = require('./put');
+const deleteGrade = require('./delete');
 
 const app = express();
 const parseJSON = express.json();
@@ -13,6 +14,7 @@ app.get('/api/grades', getAllGrades);
 app.get('/api/grades/:gradeId', getGrade);
 app.post('/api/grades', postGrade);
 app.put('/api/grades/:gradeId', putGrade);
+app.delete('/api/grades/:gradeId', deleteGrade);
 
 app.listen(3000, () => {
   // eslint-disable-next-line no-console
