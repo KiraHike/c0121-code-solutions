@@ -1,10 +1,4 @@
-const pg = require('pg');
-const db = new pg.Pool({
-  connectionString: 'postgres://dev:dev@localhost/studentGradeTable',
-  ssl: {
-    rejectUnauthorized: false
-  }
-});
+const db = require('./db');
 
 function deleteGrade(req, res, next) {
   const gradeId = parseInt(req.params.gradeId, 10);
