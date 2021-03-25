@@ -1,0 +1,36 @@
+.switch {
+position: relative;
+width: 50px;
+height: 25px;
+border: 1px solid black;
+border-radius: 25px;
+}
+.switch.off {
+background-color: rgb(223, 223, 223);
+}
+
+.switch.on {
+background-color: green;
+}
+
+.toggle {
+position: absolute;
+width: 23px;
+height: 23px;
+background-color: white;
+cursor: pointer;
+border: 1px solid rgb(223, 223, 223);
+border-radius: 50%;
+}
+
+.toggle.off {
+top: 0;
+left: 0;
+bottom: 0;
+}
+
+.toggle.on {
+top: 0;
+right: 0;
+bottom: 0;
+}
