@@ -3,48 +3,35 @@ import React from 'react';
 export default class Stopwatch extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { seconds: 0 };
-    this.handleClickPlay = this.handleClickPlay.bind(this);
-    this.handleClickPause = this.handleClickPause.bind(this);
-    this.handleClickReset = this.handleClickReset.bind(this);
+    this.state = {
+      seconds: 0,
+      running: false
+    };
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClickPlay() {
-    this.intervalID = setInterval(() => {
-      this.setState({ seconds: this.state.seconds + 1 });
-    }, 1000);
-    this.button = 'fas fa-pause';
-    this.handle = this.handleClickPause;
-    this.resetOption = null;
-  }
-
-  handleClickPause() {
-    clearInterval(this.intervalID);
-    this.button = 'fas fa-play';
-    this.handle = this.handleClickPlay;
-    this.resetOption = this.handleClickReset;
-  }
-
-  handleClickReset() {
-    this.setState({ seconds: 0 });
-    this.button = 'fas fa-play';
-    this.handle = this.handleClickPlay;
-    this.resetOption = null;
+  handleClick(event) {
+    if (!this.state.running && event.target.matches('button')) {
+      this.intervalID = setInterval(() => {
+        this.setState({ seconds: this.state.seconds + 1 });
+      }, 1000);
+      this.setState({ running: true });
+    } else if (this.state.running && event.target.matches('button')) {
+      clearInterval(this.intervalID);
+      this.setState({ running: false });
+    } else if (!this.state.running && event.target.className === 'watch') {
+      this.setState({ seconds: 0 });
+      this.setState({ running: false });
+    }
   }
 
   render() {
-    if (this.state.seconds > 0) {
-      return (
-        <div className="container">
-          <div className="watch" onClick={this.resetOption}>{this.state.seconds}</div>
-          <button className={this.button} onClick={this.handle} />
-        </div>
-      );
-    }
+    this.buttonClass = (this.state.running) ? 'fas fa-pause' : 'fas fa-play';
+
     return (
-      <div className="container">
-        <div className="watch">{this.state.seconds}</div>
-        <button className="fas fa-play" onClick={this.handleClickPlay} />
+      <div className='container' onClick={this.handleClick}>
+        <div className='watch'>{this.state.seconds}</div>
+        <button className={this.buttonClass}/>
       </div>
     );
   }
