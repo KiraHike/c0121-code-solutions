@@ -1,0 +1,63 @@
+input {
+  display: none;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  border: none;
+  border-radius: 25px;
+}
+
+.switch.off {
+  background-color: rgb(223, 223, 223);
+}
+
+.switch.on {
+  background-color: green;
+}
+
+.toggle {
+  position: absolute;
+  width: 23px;
+  height: 23px;
+  background-color: white;
+  cursor: pointer;
+  border: none;
+  border: 1px solid rgb(223, 223, 223);
+  border-radius: 50%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: all 0.25s ease 0s;
+}
+
+.toggle.off {
+  border: 1px solid rgb(223, 223, 223);
+  top: 0;
+  right: 25px;
+  bottom: 0;
+  left: 0;
+}
+
+.toggle.on {
+  border: 1px solid green;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 25px;
+}
+
+.switch-label {
+  width: 100px;
+  height: 25px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+}
