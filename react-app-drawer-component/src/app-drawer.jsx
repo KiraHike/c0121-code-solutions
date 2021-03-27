@@ -8,9 +8,9 @@ export default class AppDrawer extends React.Component {
   }
 
   handleClick(event) {
-    if (this.state.menuHidden && event.target.matches('button')) {
+    if (event.target.matches('button')) {
       this.setState({ menuHidden: false });
-    } else if (!this.state.menuHidden && event.target.className === 'view') {
+    } else if (event.target.matches('li') || event.target.className === 'container gray') {
       this.setState({ menuHidden: true });
     }
   }
@@ -22,20 +22,28 @@ export default class AppDrawer extends React.Component {
       'Sign In'
     ];
 
-    const menu = menuArray.map(item => {
-      return <li key={item} className='view'>{item}</li>;
-    });
+    const menu = menuArray.map(item => { return <li key={item}>{item}</li>; });
 
     return (
-      <h1>Menu</h1>,
-      <ul>{menu}</ul>
+      <>
+        <h1>Menu</h1>
+        <ul>{menu}</ul>
+      </>
     );
   }
 
   render() {
-    const content = this.state.menuHidden ? <button className='fas fa-bars' /> : this.makeMenu();
+    const background = this.state.menuHidden ? 'container white' : 'container gray';
+    const menuSlide = this.state.menuHidden ? 'menu close' : 'menu open';
     return (
-      <div className='container view' onClick={this.handleClick}>{content}</div>
+      <div className={background} onClick={this.handleClick}>
+        <div className={menuSlide}>
+          {this.makeMenu()}
+        </div>
+        <div>
+          <button className='fas fa-bars' />
+        </div>
+      </div>
     );
   }
 }
