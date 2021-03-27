@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+.container.white {
+  background-color: white;
+}
+
+.container.gray {
+  background-color: gray;
+}
+
+.menu {
+  position: absolute;
+  background-color: white;
+  border-right: 1px solid lightgray;
+  min-height: 100vh;
+}
+
+.menu.open {
+  left: 0;
+  width: 25%;
+  animation-name: slidein;
+  animation-duration: 0.5s;
+}
+
+.menu.close {
+  left: -30%;
+  width: 25%;
+  animation-name: slideout;
+  animation-duration: 0.5s;
+}
+
+@keyframes slidein {
+  from { left: -25%; }
+  to { left: 0; }
+}
+
+@keyframes slideout {
+  from { left: 0; }
+  to { left: -25%; }
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+li {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin: 1rem;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+  cursor: pointer;
+}
+
+button {
+  background-color: white;
+  font-size: 2rem;
+  border: none;
+  cursor: pointer;
+}
