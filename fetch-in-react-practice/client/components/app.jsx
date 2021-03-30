@@ -27,7 +27,7 @@ export default class App extends React.Component {
     fetch('/api/todos')
       .then(res => res.json())
       .then(todos => this.setState({ todos: todos }))
-      .catch(err => console.error('Error', err));
+      .catch(err => console.error(err));
   }
 
   addTodo(newTodo) {
@@ -47,11 +47,11 @@ export default class App extends React.Component {
     })
       .then(res => res.json())
       .then(todo => {
-        const newArray = this.state.todos;
+        const newArray = this.state.todos.slice();
         newArray.push(todo);
         this.setState({ todos: newArray });
       })
-      .catch(err => console.error('Error', err));
+      .catch(err => console.error(err));
   }
 
   toggleCompleted(todoId) {
@@ -70,17 +70,17 @@ export default class App extends React.Component {
      * And specify the "Content-Type" header as "application/json"
      */
 
-    let toggledTodoIndex;
-    let toggledTodo;
+    let index;
     for (let i = 0; i < this.state.todos.length; i++) {
       if (this.state.todos[i].todoId === todoId) {
-        toggledTodoIndex = i;
-        toggledTodo = this.state.todos[i];
-        toggledTodo.isCompleted
-          ? toggledTodo.isCompleted = false
-          : toggledTodo.isCompleted = true;
+        index = i;
       }
     }
+
+    const isCompleted = this.state.todos[index].isCompleted;
+    const toggledTodo = {
+      isCompleted: !isCompleted
+    };
 
     fetch(`/api/todos/${todoId}`, {
       method: 'PATCH',
@@ -89,11 +89,11 @@ export default class App extends React.Component {
     })
       .then(res => res.json())
       .then(todo => {
-        const editedArray = this.state.todos;
-        editedArray.splice(toggledTodoIndex, 1, toggledTodo);
+        const editedArray = this.state.todos.slice();
+        editedArray[index] = todo;
         this.setState({ todos: editedArray });
       })
-      .catch(err => console.error('Error', err));
+      .catch(err => console.error(err));
 
   }
 
