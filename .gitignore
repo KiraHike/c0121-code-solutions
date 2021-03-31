@@ -4,3 +4,5 @@ node_modules
 .idea
 *.log
 **/dist/**/main.js*
+**/node_modules/**
+**/.env/**
