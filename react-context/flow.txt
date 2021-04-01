@@ -1,0 +1,97 @@
+User can sign up.
+Anchor on the navbar Sign Up button and anchor on authform small div
+routes to the hash #sign-up and updates state.route.
+
+The App component calls the renderPage function which renders the
+Auth component based on state.route.
+
+The Authform component listens for change events on form inputs and updates
+state.user value.
+
+When form is submitted the form input values are serialized and
+an HTTP POST request is sent to the server.
+
+The server deserializes the request.
+
+If the username or password were not included in the body of the request
+the server uses error middleware as defined in error-middleware.js to
+construct and send an error to the client and exit the function.
+
+Otherwise, the argon2 package hashes the password.
+
+The server queries the database and inserts the new username and hashed
+password into the users table.
+
+The new username and hashed password are serialized into JSON format and
+sent to client.
+
+The response is deserialized and the window.location.hash is changed to 'sign-in'.
+
+The eventListener registers the hashchange and updates state.route.
+
+The App component calls the renderPage function which renders the
+Auth component based on state.route.path and the 'sign-in' auth form is rendered.
+
+
+
+User can sign in.
+Anchor on the navbar Sign Up button and anchor on authform small div
+routes to the hash #sign-in and updates state.route.
+
+The App component calls the renderPage function which renders the
+Auth component based on state.route.
+
+The Authform component listens for change events on form inputs and updates
+state.user value.
+
+When form is submitted the form input values are serialized and
+an HTTP POST request is sent to the server.
+
+If the username or password were not included in the body of the request
+the server uses error middleware as defined in error-middleware.js to
+construct and send an error to the client and exit the function.
+
+Otherwise, the server queries the database for a matching username.
+
+If no matching username is found the server uses error middleware as defined
+in error-middleware.js to construct and send an error to the client and
+exit the function.
+
+Otherwise, the argon2 package hashes the password and checks if it matches the
+hashed password in the database.
+
+If the hashed passwords do not match the server uses error middleware
+as defined in error-middleware.js to construct and send an error to
+the client and exit the function.
+
+Otherwise, the sign method of the jsonwebtoken package adds a
+digital signaure using the TOKEN_SECRET value included in .env.
+
+The token and user data are serialized and sent to client.
+
+The result is deserialized.
+
+The value of onSignIn is set to the result which triggers the handleSignIn
+function which stores the token in client's local storage and updates state.user.
+
+The App component calls the renderPage function which renders the
+Home component.
+
+
+
+User can stay signed in (even if they refresh the page).
+The App component calls the renderPage function which renders the
+Home component based on state.route.path.
+
+If this.state.user evaluates to true the Home component is rendered.
+
+
+
+User can sign out.
+Anchor on the navbar Sign Out button calls the handleSignOut function when clicked.
+
+The handleSignOut function removes the user data from the client's local storage
+and state.user.
+
+The App component calls the renderPage function which renders the
+Auth component based on state.route.path.
