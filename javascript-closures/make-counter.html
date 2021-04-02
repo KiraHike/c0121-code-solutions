@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Make Counter</title>
+</head>
+<body>
+  <script>
+    const makeCounter = function () {
+      let privateCounter = 0;
+      function changeBy(value) {
+        privateCounter += value;
+      }
+      return {
+        increment: function () {
+          changeBy(1);
+        },
+        decrement: function () {
+          changeBy(-1);
+        },
+        value: function () {
+          return privateCounter;
+        }
+      };
+    };
+
+    const counter1 = makeCounter();
+    const counter2 = makeCounter();
+
+    console.log('zero: ', counter1.value());
+
+    counter1.increment();
+    counter1.increment();
+    console.log('two: ', counter1.value());
+
+    counter1.decrement();
+    console.log('one: ', counter1.value());
+    console.log('zero: ', counter2.value());
+  </script>
+</body>
+
+</html>
